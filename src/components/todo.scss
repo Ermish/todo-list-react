@@ -1,0 +1,111 @@
+@import '~sass/_checkbox.scss';
+
+h1,
+h2 {
+  font-weight: normal;
+}
+
+.todo {
+  align-items: stretch;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 3px #dfdfdf;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 10px 15px;
+
+  &.iscollapsed {
+    .todo-details {
+      margin: 0;
+      max-height: 0;
+      padding: 0 18px;
+      transform: translate3d(0, 0, 0); /* trigger HW acceleration */
+      transition: max-height 0.3s ease-in-out;
+      transition: padding 0.3s ease-in-out 0.2s;
+      transition: margin 0.3s ease-in-out 0.2s;
+    }
+  }
+
+  .todo-header {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    justify-content: flex-start;
+    line-height: 40px;
+
+    .todo-checkbox {
+      @extend .check-box;
+
+      line-height: 40px;
+      margin: 0 15px 0 0;
+    }
+
+    .todo-title {
+      align-self: flex-start;
+      display: flex;
+      flex: 1 1;
+      height: 40px;
+      min-width: 25px;
+
+      .title-fixed {
+        font-size: 25px;
+        font-weight: 400;
+        line-height: 40px;
+        margin: 0;
+      }
+
+      .title-editable {
+        border: none;
+        border-color: transparent;
+        display: flex;
+        flex: 1 1;
+        font-family: 'Avenir', Helvetica, Arial, sans-serif;
+        font-size: 25px;
+        font-weight: 400;
+        line-height: 40px;
+        margin: 0;
+        padding: 0;
+
+        &:focus {
+          outline: none;
+        }
+
+        &::placeholder {
+          /* Most modern browsers support this now. */
+          color: rgb(236, 236, 236);
+        }
+      }
+    }
+  }
+
+  .todo-details {
+    align-self: stretch;
+    background-color: #fafafa;
+    border-radius: 8px;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    margin: 12px 0 2px 0;
+    max-height: 1000px;
+    overflow: hidden;
+    padding: 18px 18px;
+    transform: translate3d(0, 0, 0); /* trigger HW acceleration */
+    transition: max-height 0.3s ease-in-out;
+
+    .todo-notes {
+      align-self: flex-start;
+      flex: 1 1 auto;
+    }
+
+    .todo-subtasks {
+      align-self: flex-start;
+      flex: 1 1 auto;
+
+      ol {
+        padding-left: 18px;
+      }
+    }
+  }
+}

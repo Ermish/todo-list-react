@@ -1,0 +1,65 @@
+@import '~sass/_variables.scss';
+
+.todo-list {
+  background-color: #fff;
+  border-radius: 8px;
+  min-height: 400px;
+  padding: 5px;
+
+  @media screen and (min-width: $width-desktop) {
+    & {
+      padding: 40px 30px 60px 30px !important;
+    }
+  }
+
+  .todo-list-items {
+    display: grid;
+    grid-auto-rows: min-content;
+    grid-row-gap: 10px;
+    grid-template-columns: 0 1fr 0;
+
+    .todo {
+      grid-column: 2 / 2;
+    }
+  }
+
+  .add-todo-container {
+    align-self: flex-start;
+    display: flex;
+    font-size: 28px;
+    margin: 25px 15px;
+
+    .add-todo-button {
+      color: #c7c7c7;
+      text-decoration: none;
+
+      .add-todo-icon {
+        content: '+';
+      }
+
+      &:hover {
+        color: #808080;
+      }
+    }
+  }
+}
+
+.todo-list-animation {
+  .fade-enter {
+    opacity: 0.01;
+  }
+
+  .fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 400ms ease-in;
+  }
+
+  .fade-exit {
+    opacity: 1;
+  }
+
+  .fade-exit.fade-exit-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+  }
+}
